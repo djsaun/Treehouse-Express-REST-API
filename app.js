@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const routes = require('./routes');
 const jsonParser = require('body-parser').json;
+const logger = require('morgan');
+
+app.use(logger('dev')); // configures middleware to give status codes for API responses
 
 app.use(jsonParser());
 
