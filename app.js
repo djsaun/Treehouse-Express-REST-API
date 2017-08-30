@@ -23,6 +23,18 @@ db.once("open", function(){
 	console.log("db connection successful");
 });
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*") // Restrict domains that the API can resond to. * Means requests can be made to the API from any domain
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept") // Tells the client which headers are permitted in their request
+
+	// Grant pre-flight requests permission
+	if (req.method === "OPTIONS") {
+		res.header("Access-Control-Allow-Methods", "PUT, POST, DELETE");
+		return res.status(200.json({}));
+	}
+	next();
+});
+
 app.use('/questions', routes);
 
 // Catch 404 error and forward to error handler
