@@ -1,0 +1,24 @@
+{
+  "name": "treehouse-rest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djsaun/Treehouse-Express-REST-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djsaun/Treehouse-Express-REST-API/issues"
+  },
+  "homepage": "https://github.com/djsaun/Treehouse-Express-REST-API#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4"
+  }
+}
