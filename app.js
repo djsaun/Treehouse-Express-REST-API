@@ -5,10 +5,23 @@ const app = express();
 const routes = require('./routes');
 const jsonParser = require('body-parser').json;
 const logger = require('morgan');
+const mongoose = require('mongoose');
 
 app.use(logger('dev')); // configures middleware to give status codes for API responses
 
 app.use(jsonParser());
+
+mongoose.connect("mongodb://localhost:27017/qa");
+
+const db = mongoose.connection;
+
+db.on("error", function(err){
+	console.error("connection error:", err);
+});
+
+db.once("open", function(){
+	console.log("db connection successful");
+});
 
 app.use('/questions', routes);
 
